@@ -16,7 +16,11 @@ export default defineConfig({
       },
       template: './index.html',
     }),
-    svgr()
+    svgr({
+      svgrOptions: {
+        icon: true,
+      },
+    }),
   ],
   build: {
     rollupOptions: {
