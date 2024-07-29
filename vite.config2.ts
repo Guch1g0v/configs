@@ -16,11 +16,7 @@ export default defineConfig({
       },
       template: './index.html',
     }),
-    svgr({
-      svgrOptions: {
-        icon: true,
-      },
-    }),
+    svgr()
   ],
   build: {
     rollupOptions: {
@@ -51,5 +47,13 @@ export default defineConfig({
     port: 3000,
   },
   publicDir: './static',
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.svg', '**/*.woff']
+  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.svg', '**/*.woff', '**/*.svg'],
+  esbuild: {
+    loader: {
+      '.svg': 'file',
+      '.png': 'file',
+      '.jpg': 'file',
+      '.woff': 'file'
+    }
+  }
 })
